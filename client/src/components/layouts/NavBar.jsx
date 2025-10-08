@@ -32,10 +32,21 @@ function Navbar(){
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
                 {navItems.map((item, key) => (
-                    <a href={item.href} key={key} className="text-foreground hover:text-primary transition-colors duration-300">
+                    <a href={item.href} key={key} className="text-primary hover:text-primary">
                         {item.name}
                     </a>
                 ))}
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={cn("fixed inset-0 bg-background")}>
+            <div className="hidden md:flex space-x-8">
+                {navItems.map((item, key) => (
+                    <a href={item.href} key={key} className="text-primary hover:text-primary">
+                        {item.name}
+                    </a>
+                ))}
+            </div>
             </div>
         </div>
     </nav>
