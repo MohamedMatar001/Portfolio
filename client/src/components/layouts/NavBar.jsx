@@ -47,7 +47,7 @@ function Navbar() {
             <a
               href={item.href}
               key={key}
-              className="text-primary/80 hover:text-primary"
+              className="text-foreground/80 hover:text-primary"
             >
               {item.name}
             </a>
