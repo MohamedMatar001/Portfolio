@@ -4,6 +4,7 @@ import Navbar from "./NavBar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
+import ProjectsSection from "./ProjectsSection";
 
 function Home(){
     return <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -14,6 +15,7 @@ function Home(){
             <HeroSection/>
             <AboutSection/>
             <SkillsSection/>
+            <ProjectsSection/>
         </main>
     </div>
 }

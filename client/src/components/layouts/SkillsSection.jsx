@@ -1,28 +1,49 @@
 import React, { useState } from "react";
+
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiGithub,
+  SiGit,
+  SiTailwindcss,
+} from "react-icons/si";
+import { DiVisualstudio } from "react-icons/di";
+
 import { cn } from "../../lib/utils";
 const skills = [
   // Frontend
-  { name: "HTML/CSS", level: 80, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 80, category: "frontend" },
-  { name: "Tailwind CSS", level: 80, category: "frontend" },
+  { name: "HTML/CSS", level: 80, category: "frontend", icon: SiHtml5 },
+  { name: "JavaScript", level: 90, category: "frontend", icon: SiJavascript },
+  { name: "React", level: 80, category: "frontend", icon: SiReact },
+  {
+    name: "Tailwind CSS",
+    level: 80,
+    category: "frontend",
+    icon: SiTailwindcss,
+  },
 
   // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 60, category: "backend" },
-  { name: "PostgreSQL", level: 80, category: "backend" },
+  { name: "Node.js", level: 80, category: "backend", icon: SiNodedotjs },
+  { name: "Express", level: 75, category: "backend", icon: SiExpress },
+  { name: "MongoDB", level: 60, category: "backend", icon: SiMongodb },
+  { name: "PostgreSQL", level: 80, category: "backend", icon: SiPostgresql },
 
   // Tools
-  { name: "Git/GitHub", level: 70, category: "tools" },
-  { name: "VS Code", level: 90, category: "tools" },
+  { name: "Git/GitHub", level: 70, category: "tools", icon: SiGithub },
+  { name: "VS Code", level: 90, category: "tools", icon: DiVisualstudio },
 ];
 
 function SkillsSection() {
-    const [activeCategory, setActiveCatergory] = useState("all");
-    const filteredSkills = skills.filter(skill =>
-        activeCategory === "all" ? true : skill.category === activeCategory
-    );
+  const [activeCategory, setActiveCatergory] = useState("all");
+  const filteredSkills = skills.filter((skill) =>
+    activeCategory === "all" ? true : skill.category === activeCategory
+  );
 
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
@@ -32,15 +53,20 @@ function SkillsSection() {
         </h2>
 
         <div className="flex flex-wrap justify-center mb-12 gap-4">
-            {["all", "frontend", "backend", "tools"].map((category, key) => (
-                <button key={key}
-                onClick={() => setActiveCatergory(category)} 
-                className={cn("px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                    activeCategory === category ? "bg-primary text-primary-foreground" : "bg-secondary/70 text-foreground hover:bg-secondary"
-                )}>
-                    {category}
-                </button>
-            ))}
+          {["all", "frontend", "backend", "tools"].map((category, key) => (
+            <button
+              key={key}
+              onClick={() => setActiveCatergory(category)}
+              className={cn(
+                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary"
+              )}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,17 +75,25 @@ function SkillsSection() {
               key={key}
               className="bg-card p-6 rounded-lg shadow-xs card-hover"
             >
-              <div className="text-left mb-4">
+              <div className="text-left mb-4 flex items-center gap-3">
+                {skill.icon && (
+                  <skill.icon
+                    className="h-6 w-6 text-primary"
+                    aria-hidden="true"
+                  />
+                )}
                 <h3 className="font-semibold text-lg">{skill.name}</h3>
               </div>
               <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-primary h-2 roudned-full origin-left animate-[grow_1.5s_ease-out]"
+                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
                   style={{ width: `${skill.level}%` }}
                 />
               </div>
               <div className="text-right mt-2">
-                <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                <span className="text-sm text-muted-foreground">
+                  {skill.level}%
+                </span>
               </div>
             </div>
           ))}

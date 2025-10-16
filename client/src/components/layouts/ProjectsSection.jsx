@@ -1,72 +1,89 @@
-import React, { useState } from "react";
-import { cn } from "../../lib/utils";
-const skills = [
-  // Frontend
-  { name: "HTML/CSS", level: 80, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 80, category: "frontend" },
-  { name: "Tailwind CSS", level: 80, category: "frontend" },
+import { Github , ArrowRight} from "lucide-react";
 
-  // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 60, category: "backend" },
-  { name: "PostgreSQL", level: 80, category: "backend" },
-
-  // Tools
-  { name: "Git/GitHub", level: 70, category: "tools" },
-  { name: "VS Code", level: 90, category: "tools" },
+const projects = [
+  {
+    title: "Project One",
+    description: "Description for project one.",
+    image: "",
+    tags: ["React", "Node.js"],
+    github: "",
+  },
+  {
+    title: "Project Two",
+    description: "Description for project two.",
+    image: "",
+    tags: ["Express", "MongoDB"],
+    github: "",
+  },
+  {
+    title: "Project Three",
+    description: "Description for project three.",
+    image: "",
+    tags: ["PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/MohamedMatar001/E-commerce",
+  },
 ];
 
-function SkillsSection() {
-    const [activeCategory, setActiveCatergory] = useState("all");
-    const filteredSkills = skills.filter(skill =>
-        activeCategory === "all" ? true : skill.category === activeCategory
-    );
-
+function ProjectsSection() {
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          Featured <span className=" text-primary">Projects</span>
         </h2>
-
-        <div className="flex flex-wrap justify-center mb-12 gap-4">
-            {["all", "frontend", "backend", "tools"].map((category, key) => (
-                <button key={key}
-                onClick={() => setActiveCatergory(category)} 
-                className={cn("px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                    activeCategory === category ? "bg-primary text-primary-foreground" : "bg-secondary/70 text-foreground hover:bg-secondary"
-                )}>
-                    {category}
-                </button>
-            ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Here are some of the projects I've worked on recently. Click on the
+          GitHub icon to view the code.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 roudned-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: `${skill.level}%` }}
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="text-right mt-2">
-                <span className="text-sm text-muted-foreground">{skill.level}%</span>
+
+              <div className="p-6">
+                <div className="flex felx-warp gap-2 mb-4">
+                  {project.tags.map((tag, index) => (
+                    <span className="px-2 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {project.description}
+                </p>
+                <div className="flex justify-between items-center">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={20} />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </div>
+          <div className="text-center mt-12">
+            <a href="https://github.com/MohamedMatar001" target="_blank" className="cosmic-button w-fit flex items-center mx-auto gap-2">
+              Check My Github <ArrowRight size={16}/>
+            </a>
+          </div>
+
       </div>
     </section>
   );
 }
 
-export default SkillsSection;
+export default ProjectsSection;
