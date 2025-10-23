@@ -1,4 +1,4 @@
-import { Github , ArrowRight} from "lucide-react";
+import { Github, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -75,12 +75,15 @@ function ProjectsSection() {
             </div>
           ))}
         </div>
-          <div className="text-center mt-12">
-            <a href="https://github.com/MohamedMatar001" target="_blank" className="cosmic-button w-fit flex items-center mx-auto gap-2">
-              Check My Github <ArrowRight size={16}/>
-            </a>
-          </div>
-
+        <div className="text-center mt-12">
+          <a
+            href="https://github.com/MohamedMatar001"
+            target="_blank"
+            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+          >
+            Check My Github <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
     </section>
   );
