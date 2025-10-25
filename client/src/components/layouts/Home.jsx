@@ -6,6 +6,7 @@ import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
+import Footer from "../Footer";
 
 function Home(){
     return <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -19,6 +20,7 @@ function Home(){
             <ProjectsSection/>
             <ContactSection/>
         </main>
+        <Footer/>
     </div>
 }
 
