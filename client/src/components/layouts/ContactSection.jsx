@@ -7,7 +7,7 @@ function ContactSection(){
             Get In <span className="text-primary "> Touch</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 mx-w-2xl mx-auto">
-            some discreption goes here
+            I’m open to new opportunities where I can build impactful web applications and grow as a developer. Let’s connect and create something great!
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-8">

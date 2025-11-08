@@ -41,8 +41,7 @@ function AboutSection() {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg"> Web Development</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive and dynamic web applications with a
-                    focus on performance and user experience.
+                    Building fast, responsive web apps with React, Tailwind, and Node.js, focused on clean code, performance, and scalability.
                   </p>
                 </div>
               </div>
@@ -55,8 +54,7 @@ function AboutSection() {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">UI/Ux Design</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive and dynamic web applications with a
-                    focus on performance and user experience.
+                    Designing intuitive, user-centered interfaces that combine modern visuals with seamless usability across all devices.
                   </p>
                 </div>
               </div>
@@ -67,10 +65,9 @@ function AboutSection() {
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
+                  <h4 className="font-semibold text-lg"> Backend Development</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive and dynamic web applications with a
-                    focus on performance and user experience.
+                    Developing secure, efficient APIs with Node.js, Express, and PostgreSQL, ensuring smooth data flow and reliability.
                   </p>
                 </div>
               </div>
